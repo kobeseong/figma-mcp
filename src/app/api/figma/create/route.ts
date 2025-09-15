@@ -32,7 +32,9 @@ export async function POST(request: NextRequest) {
 
       completeProcessing();
 
-      return apiSuccessHandler('codex 명령어가 성공적으로 실행되었습니다');
+      return apiSuccessHandler('codex 명령어가 성공적으로 실행되었습니다', {
+        output: stdout,
+      });
     } catch {
       completeProcessing();
 
