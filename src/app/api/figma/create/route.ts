@@ -23,8 +23,7 @@ export async function POST(request: NextRequest) {
       return apiErrorHandler('이미 다른 작업이 처리 중입니다');
     }
 
-    const prompt = `안녕하세요 인사를 해줘`;
-    const command = `codex exec "${prompt}" --dangerously-bypass-approvals-and-sandbox`;
+    const command = `codex exec "${PROMPT}"`;
 
     startProcessing();
     try {
@@ -45,3 +44,5 @@ export async function POST(request: NextRequest) {
     return apiErrorHandler('서버 오류가 발생했습니다');
   }
 }
+
+const PROMPT = `안녕하세요 인사를 해줘`;
